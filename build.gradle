@@ -1,0 +1,30 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.5.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        maven{ url "http://www.nexus.ford.com/repository/external-proxy-group" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+
+
+repositories {
+    mavenCentral()
+    maven{ url "http://www.nexus.ford.com/repository/external-proxy-group" }
+}
+
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter')
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    compile 'org.springframework.boot:spring-boot-starter-web-services'
+}
